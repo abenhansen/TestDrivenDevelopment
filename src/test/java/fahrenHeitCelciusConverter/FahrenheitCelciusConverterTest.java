@@ -1,15 +1,17 @@
 package fahrenHeitCelciusConverter;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import romanNumeralConverter.RomanNumeralConverter;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class FahrenheitCelciusConverterTest {
 
     @Test
-    private void mustBeAbleToCreateConverter(){
+    public void mustBeAbleToCreateConverter(){
         //Arrange
 
         //Act
@@ -20,7 +22,7 @@ public class FahrenheitCelciusConverterTest {
     }
 
     @Test
-    private void convertFahrenHeitToCelcius()
+    public void convertFahrenheitToCelcius()
     {
         //Arrange
         FahrenheitCelciusConverter fahrenheitConverter = new FahrenheitCelciusConverter();
