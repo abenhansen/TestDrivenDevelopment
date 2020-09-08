@@ -27,8 +27,11 @@ List step by step how to brush your teeth to teach an alien:
 - You now have clean teeth.
 
 ## Thoughts on TDD
-
--
--
--
--
+-What was positive and good about using TDD?
+    -It
+- What was Annoying or difficult?
+    - I found it annoying that i had to create tests that fail
+- What surprised you?
+    - How it 
+- Did TDD help you write some tests you wouldn’t otherwise have thoughtof?
+    -Yes!
