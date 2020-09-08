@@ -1,8 +1,8 @@
 # Test - Assigment 1: TestDrivenDevelopment
 
-##Reflections
+## Reflections
 
-###Shooting 
+### Shooting 
 List the possible reasons for the man not dying:
 - She missed the shot
 - The man dodged the shot
@@ -10,7 +10,7 @@ List the possible reasons for the man not dying:
 - She was out of ammunition
 - He was shot in a non fatal spot
 
-###Alien
+### Alien
 List step by step how to brush your teeth to teach an alien:
 - With your left hand you should pick up the toothpaste 
 - Open the toothpaste and turn the cap anti-clockwise
@@ -26,7 +26,7 @@ List step by step how to brush your teeth to teach an alien:
 - Put down your toothbrush.
 - You now have clean teeth.
 
-##Thoughts on TDD
+## Thoughts on TDD
 
 -
 -
