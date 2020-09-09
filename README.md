@@ -31,6 +31,8 @@ List step by step how to brush your teeth to teach an alien:
     - TDD made me create more test than I normally would, and helped increase test coverage.
 - What was Annoying or difficult?
     - I found it annoying that i had to create tests that fail
+    - I found it annying that I had to create test that were VERY similair
+    - I found it difficult to come up with the test without having an implementation first
 - What surprised you?
     - How it 
 - Did TDD help you write some tests you wouldn’t otherwise have thoughtof?

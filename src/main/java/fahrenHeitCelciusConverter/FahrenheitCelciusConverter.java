@@ -1,19 +1,30 @@
 package fahrenHeitCelciusConverter;
 
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 
 public class FahrenheitCelciusConverter {
 
-    public static void main(String[] args)
-    {
-        System.out.println("Number has been converted to "  + enterAndConvertToCelcius());
+    public static void main(String[] args) {
+        enterAndConvertToCelcius();
     }
+
 
     public static String enterInput() {
         Scanner scanner = new Scanner(System.in);
+        String input = "";
         System.out.println("Enter a number to convert to Celcius from Fahrenheit");
-        String input = scanner.nextLine();
+        while (true) {
+            try {
+                int numberInput = scanner.nextInt();
+                input = Integer.toString(numberInput);
+                break;
+            } catch (NoSuchElementException e) {
+                System.out.println("Invalid input, you must enter a number");
+                scanner.next();
+            }
+        }
         return input;
     }
 
@@ -23,13 +34,29 @@ public class FahrenheitCelciusConverter {
     }
 
     public static String convertToFahrenheit(double i) {
-        double number = i * 9/5 + 32;
+        double number = i * 9 / 5 + 32;
         return removeTrailingZeros(number, false);
     }
 
-    public static String enterAndConvertToCelcius() {
-        String input = enterInput();
-        return convertToCelcius(Double.valueOf(input));
+    public static void enterAndConvertToCelcius() {
+        Scanner scanner = new Scanner(System.in);
+        String input = "";
+        boolean finished = true;
+        while (finished) {
+            System.out.println("Enter 1 to convert to celcius, press 2 to convert to fahrenheit");
+                switch (scanner.next()) {
+                    case "1":
+                        finished = false;
+                        input = enterInput();
+                        System.out.println(convertToCelcius(Double.valueOf(input)));
+                        break;
+                    case "2":
+                        finished = false;
+                        input = enterInput();
+                        System.out.println(convertToFahrenheit(Double.valueOf(input)));
+                        break;
+                }
+        }
     }
 
     public static String removeTrailingZeros(double number, boolean isCelcius) {
