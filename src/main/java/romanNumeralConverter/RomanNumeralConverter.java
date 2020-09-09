@@ -1,7 +1,15 @@
 package romanNumeralConverter;
 
+import java.util.NoSuchElementException;
+import java.util.Scanner;
+
 public class RomanNumeralConverter {
-    public String convert(int number) {
+
+    public static void main(String[] args) {
+        System.out.println(convertUserInput());
+    }
+
+    public static String convert(int number) {
         String romanNumber = "";
         if (number < 3999) {
             for (int i = number; i > 0; i--) {
@@ -81,5 +89,22 @@ public class RomanNumeralConverter {
             }
         }
         return romanNumber;
+    }
+
+    public static String convertUserInput() {
+        String input = "";
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a number to convert to Roman Numeral");
+        while (true) {
+            try {
+                int numberInput = scanner.nextInt();
+                input = convert(numberInput);
+                break;
+            } catch (NoSuchElementException e) {
+                System.out.println("Invalid input, you must enter a number");
+                scanner.next();
+            }
+        }
+        return input;
     }
 }

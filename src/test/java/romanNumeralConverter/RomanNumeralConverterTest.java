@@ -3,6 +3,10 @@ package romanNumeralConverter;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
+import java.io.ByteArrayInputStream;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -268,6 +272,36 @@ public class RomanNumeralConverterTest {
 
         //Assert
         assertEquals("", actualResult);
+    }
+
+    @Test
+    public void MustBeAbleToTakeUserInput() {
+        //Arrange
+        RomanNumeralConverter romanConverter = new RomanNumeralConverter();
+        String expectedResult = "DCCXXI";
+        //Act
+        ByteArrayInputStream in = new ByteArrayInputStream("721".getBytes());
+        System.setIn(in);
+        String actualResult = romanConverter.convertUserInput();
+
+        //Assert
+        assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    public void userInputMustBeANumber() {
+        //Arrange
+        RomanNumeralConverter romanConverter = new RomanNumeralConverter();
+        //Act
+        ByteArrayInputStream in = new ByteArrayInputStream("stringInput".getBytes());
+        System.setIn(in);
+        try {
+            Scanner scanner = new Scanner(System.in);
+            romanConverter.convertUserInput();
+            fail("Should have thrown an exception");
+        } catch (NoSuchElementException e) {
+            //Assert
+        }
     }
 
 

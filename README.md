@@ -29,11 +29,16 @@ List step by step how to brush your teeth to teach an alien:
 ## Thoughts on TDD
 -What was positive and good about using TDD?
     - TDD made me create more test than I normally would, and helped increase test coverage.
+    - It made me think out of the box compared to normal
+    - It made my code more robust
 - What was Annoying or difficult?
     - I found it annoying that i had to create tests that fail
-    - I found it annying that I had to create test that were VERY similair
+    - I found it annying that I had to create test that were VERY similar
+    - It became a bit repetive which i found annoying
     - I found it difficult to come up with the test without having an implementation first
 - What surprised you?
-    - How it 
+    - How TDD helps you with creating an implementation
 - Did TDD help you write some tests you wouldn’t otherwise have thoughtof?
-    - Yes, I would never have created a test that made me test the input of the user, but because i had to create the test first I had to make that test!
+    - I would never have created a test that made me test the input of the user, but because i had to create the test first I had to make that test!
+    - I would not have made so many repetive tests
+    - I would not have made a test that caught exceptions
