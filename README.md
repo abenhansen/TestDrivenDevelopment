@@ -27,7 +27,7 @@ List step by step how to brush your teeth to teach an alien:
 - You now have clean teeth.
 
 ## Thoughts on TDD
--What was positive and good about using TDD?
+- What was positive and good about using TDD?
     - TDD made me create more test than I normally would, and helped increase test coverage.
     - It made me think out of the box compared to normal
     - It made my code more robust
