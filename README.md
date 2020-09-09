@@ -28,10 +28,10 @@ List step by step how to brush your teeth to teach an alien:
 
 ## Thoughts on TDD
 -What was positive and good about using TDD?
-    -It
+    - TDD made me create more test than I normally would, and helped increase test coverage.
 - What was Annoying or difficult?
     - I found it annoying that i had to create tests that fail
 - What surprised you?
     - How it 
 - Did TDD help you write some tests you wouldn’t otherwise have thoughtof?
-    -Yes!
+    -Yes, I would never have created a test that made me test the input of the user, but because i had to create the test first I had to make that test!

@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class FahrenheitCelciusConverterTest {
 
     @Test
-    public void mustBeAbleToCreateConverter(){
+    public void mustBeAbleToCreateConverter() {
         //Arrange
 
         //Act
@@ -39,6 +39,20 @@ public class FahrenheitCelciusConverterTest {
     }
 
     @Test
+    public void removeTralingZerosFromConversion() {
+        //Arrange
+        FahrenheitCelciusConverter fahrenheitConverter = new FahrenheitCelciusConverter();
+        String expectedResult = "10°C";
+
+        //Act
+
+        String actualResult = fahrenheitConverter.convertToFahrenheit(50);
+
+        //Assert
+        assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
     public void mustBeAbleToEnterInput()
     {
         //Arrange
@@ -50,6 +64,22 @@ public class FahrenheitCelciusConverterTest {
         ByteArrayInputStream in = new ByteArrayInputStream("testInput".getBytes());
         System.setIn(in);
         String actualResult = fahrenheitConverter.enterInput();
+
+        //Assert
+        assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    public void mustBeAbleToEnterInputAndConvert()
+    {
+        //Arrange
+        FahrenheitCelciusConverter fahrenheitConverter = new FahrenheitCelciusConverter();
+        String expectedResult = "21.11111111111111°C";
+
+        //Act
+        ByteArrayInputStream in = new ByteArrayInputStream("70".getBytes());
+        System.setIn(in);
+        String actualResult = fahrenheitConverter.enterAndConvert();
 
         //Assert
         assertEquals(expectedResult, actualResult);
