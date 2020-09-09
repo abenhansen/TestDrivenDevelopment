@@ -7,12 +7,11 @@ import java.util.Scanner;
 public class FahrenheitCelciusConverter {
 
     public static void main(String[] args) {
-        enterAndConvertToCelcius();
+        System.out.println(enterAndConvertToChosenFormat());
     }
 
 
-    public static String enterInput() {
-        Scanner scanner = new Scanner(System.in);
+    public static String enterInput(Scanner scanner) {
         String input = "";
         System.out.println("Enter a number to convert to Celcius from Fahrenheit");
         while (true) {
@@ -38,25 +37,26 @@ public class FahrenheitCelciusConverter {
         return removeTrailingZeros(number, false);
     }
 
-    public static void enterAndConvertToCelcius() {
+    public static String enterAndConvertToChosenFormat() {
         Scanner scanner = new Scanner(System.in);
         String input = "";
         boolean finished = true;
         while (finished) {
             System.out.println("Enter 1 to convert to celcius, press 2 to convert to fahrenheit");
-                switch (scanner.next()) {
-                    case "1":
-                        finished = false;
-                        input = enterInput();
-                        System.out.println(convertToCelcius(Double.valueOf(input)));
-                        break;
-                    case "2":
-                        finished = false;
-                        input = enterInput();
-                        System.out.println(convertToFahrenheit(Double.valueOf(input)));
-                        break;
-                }
+            switch (scanner.next()) {
+                case "1":
+                    finished = false;
+                    scanner.nextLine();
+                    input = enterInput(scanner);
+                    return convertToCelcius(Double.valueOf(input));
+                case "2":
+                    finished = false;
+                    scanner.nextLine();
+                    input = enterInput(scanner);
+                    return convertToFahrenheit(Double.valueOf(input));
+            }
         }
+        return "";
     }
 
     public static String removeTrailingZeros(double number, boolean isCelcius) {

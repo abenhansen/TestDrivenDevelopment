@@ -4,8 +4,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
 import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
+import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -72,7 +74,8 @@ public class FahrenheitCelciusConverterTest {
         //Act
         ByteArrayInputStream in = new ByteArrayInputStream("5".getBytes());
         System.setIn(in);
-        String actualResult = fahrenheitConverter.enterInput();
+        Scanner scanner = new Scanner(System.in);
+        String actualResult = fahrenheitConverter.enterInput(scanner);
 
         //Assert
         assertEquals(expectedResult, actualResult);
@@ -87,7 +90,8 @@ public class FahrenheitCelciusConverterTest {
         //Act
         ByteArrayInputStream in = new ByteArrayInputStream("70".getBytes());
         System.setIn(in);
-        String actualResult = fahrenheitConverter.enterInput();
+        Scanner scanner = new Scanner(System.in);
+        String actualResult = fahrenheitConverter.enterInput(scanner);
         actualResult = fahrenheitConverter.convertToCelcius(Integer.valueOf(actualResult));
 
         //Assert
@@ -115,9 +119,27 @@ public class FahrenheitCelciusConverterTest {
         ByteArrayInputStream in = new ByteArrayInputStream("testInput".getBytes());
         System.setIn(in);
         try {
-            fahrenheitConverter.enterInput();
+            Scanner scanner = new Scanner(System.in);
+            fahrenheitConverter.enterInput(scanner);
             fail("Should have thrown an exception");
         } catch (NoSuchElementException e) {
         }
+    }
+
+    @Test
+    public void mustOnlyBeAbleChooseWhichConversionToUse() {
+        //Arrange
+        FahrenheitCelciusConverter fahrenheitConverter = new FahrenheitCelciusConverter();
+        String expectedCelciusResult = "21.11111111111111°C";
+        String expectedFahrenheitResult;
+
+        //Act
+        String simulatedUserInput = "1\n70";
+        System.setIn(new ByteArrayInputStream(simulatedUserInput.getBytes()));
+        //ByteArrayInputStream in = new ByteArrayInputStream(simulatedUserInput.getBytes());
+        String actualExpectedResult =  fahrenheitConverter.enterAndConvertToChosenFormat();
+
+        assertEquals(expectedCelciusResult, actualExpectedResult);
+
     }
 }
