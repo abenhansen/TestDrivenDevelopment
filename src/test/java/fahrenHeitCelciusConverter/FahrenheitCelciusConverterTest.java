@@ -2,10 +2,8 @@ package fahrenHeitCelciusConverter;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-import romanNumeralConverter.RomanNumeralConverter;
 
 import java.io.ByteArrayInputStream;
-import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -25,14 +23,14 @@ public class FahrenheitCelciusConverterTest {
     }
 
     @Test
-    public void convertOneFahrenheitToCelcius()
+    public void mustBeAbleToConvertOneFahrenheitToCelcius()
     {
         //Arrange
         FahrenheitCelciusConverter fahrenheitConverter = new FahrenheitCelciusConverter();
         String expectedResult = "-17.22222222222222°C";
 
         //Act
-        String actualResult =  fahrenheitConverter.convertToFahrenheit(1);
+        String actualResult =  fahrenheitConverter.convertToCelcius(1);
 
         //Assert
         assertEquals(expectedResult, actualResult);
@@ -42,11 +40,10 @@ public class FahrenheitCelciusConverterTest {
     public void removeTralingZerosFromConversion() {
         //Arrange
         FahrenheitCelciusConverter fahrenheitConverter = new FahrenheitCelciusConverter();
-        String expectedResult = "10°C";
-
+        String expectedResult = "50°C";
         //Act
 
-        String actualResult = fahrenheitConverter.convertToFahrenheit(50);
+        String actualResult = fahrenheitConverter.removeTrailingZeros(50.0000, true);
 
         //Assert
         assertEquals(expectedResult, actualResult);
@@ -79,11 +76,24 @@ public class FahrenheitCelciusConverterTest {
         //Act
         ByteArrayInputStream in = new ByteArrayInputStream("70".getBytes());
         System.setIn(in);
-        String actualResult = fahrenheitConverter.enterAndConvert();
+        String actualResult = fahrenheitConverter.enterAndConvertToCelcius();
 
         //Assert
         assertEquals(expectedResult, actualResult);
     }
 
+    @Test
+    public void mustBeAbleToConvertCelciusToFahrenheit()
+    {
+        //Arrange
+        FahrenheitCelciusConverter fahrenheitConverter = new FahrenheitCelciusConverter();
+        String expectedResult = "64.4°F";
+
+        //Act
+        String actualResult =  fahrenheitConverter.convertToFahrenheit(18);
+
+        //Assert
+        assertEquals(expectedResult, actualResult);
+    }
 
 }
