@@ -127,19 +127,31 @@ public class FahrenheitCelciusConverterTest {
     }
 
     @Test
-    public void mustOnlyBeAbleChooseWhichConversionToUse() {
+    public void mustBeAbleChooseCelciusConversion() {
         //Arrange
         FahrenheitCelciusConverter fahrenheitConverter = new FahrenheitCelciusConverter();
-        String expectedCelciusResult = "21.11111111111111°C";
-        String expectedFahrenheitResult;
+        String expectedResult = "21.11111111111111°C";
 
         //Act
-        String simulatedUserInput = "1\n70";
-        System.setIn(new ByteArrayInputStream(simulatedUserInput.getBytes()));
-        //ByteArrayInputStream in = new ByteArrayInputStream(simulatedUserInput.getBytes());
+        String simulatedMultipleUserInputs = "1\n70";
+        System.setIn(new ByteArrayInputStream(simulatedMultipleUserInputs.getBytes()));
         String actualExpectedResult =  fahrenheitConverter.enterAndConvertToChosenFormat();
-
-        assertEquals(expectedCelciusResult, actualExpectedResult);
+        assertEquals(expectedResult, actualExpectedResult);
 
     }
+    @Test
+    public void mustBeAbleChooseFahrenheitConversion() {
+        //Arrange
+        FahrenheitCelciusConverter fahrenheitConverter = new FahrenheitCelciusConverter();
+        String expectedResult = "77°F";
+
+        //Act
+        String simulatedMultipleUserInputs = "2\n25";
+        System.setIn(new ByteArrayInputStream(simulatedMultipleUserInputs.getBytes()));
+        String actualResult =  fahrenheitConverter.enterAndConvertToChosenFormat();
+
+        assertEquals(expectedResult, actualResult);
+
+    }
+
 }
