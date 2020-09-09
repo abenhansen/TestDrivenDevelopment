@@ -34,4 +34,4 @@ List step by step how to brush your teeth to teach an alien:
 - What surprised you?
     - How it 
 - Did TDD help you write some tests you wouldn’t otherwise have thoughtof?
-    -Yes, I would never have created a test that made me test the input of the user, but because i had to create the test first I had to make that test!
+    - Yes, I would never have created a test that made me test the input of the user, but because i had to create the test first I had to make that test!
