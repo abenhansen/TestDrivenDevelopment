@@ -1,5 +1,6 @@
 package fahrenHeitCelciusConverter;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
@@ -14,13 +15,17 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class FahrenheitCelciusConverterTest {
 
+    private FahrenheitCelciusConverter fahrenheitConverter;
+
+    @BeforeEach
+    public void setup(){
+        fahrenheitConverter = new FahrenheitCelciusConverter();
+    }
+
     @Test
     public void mustBeAbleToCreateConverter() {
         //Arrange
-
         //Act
-        FahrenheitCelciusConverter fahrenheitConverter = new FahrenheitCelciusConverter();
-
         //Assert
         assertNotNull(fahrenheitConverter);
     }
@@ -28,7 +33,6 @@ public class FahrenheitCelciusConverterTest {
     @Test
     public void mustBeAbleToConvertOneFahrenheitToCelcius() {
         //Arrange
-        FahrenheitCelciusConverter fahrenheitConverter = new FahrenheitCelciusConverter();
         String expectedResult = "-17.22222222222222°C";
 
         //Act
@@ -41,7 +45,6 @@ public class FahrenheitCelciusConverterTest {
     @Test
     public void mustBeAbleToRemoveTrailingZeroesFromCelcius() {
         //Arrange
-        FahrenheitCelciusConverter fahrenheitConverter = new FahrenheitCelciusConverter();
         String expectedResult = "50°C";
         //Act
 
@@ -54,10 +57,8 @@ public class FahrenheitCelciusConverterTest {
     @Test
     public void mustBeAbleToRemoveTrailingZeroesFromFahrenheit() {
         //Arrange
-        FahrenheitCelciusConverter fahrenheitConverter = new FahrenheitCelciusConverter();
         String expectedResult = "50°F";
         //Act
-
         String actualResult = fahrenheitConverter.removeTrailingZeros(50.0000, false);
 
         //Assert
@@ -67,7 +68,6 @@ public class FahrenheitCelciusConverterTest {
     @Test
     public void mustBeAbleToEnterInput() {
         //Arrange
-        FahrenheitCelciusConverter fahrenheitConverter = new FahrenheitCelciusConverter();
         String expectedResult = "5";
 
 
@@ -84,7 +84,6 @@ public class FahrenheitCelciusConverterTest {
     @Test
     public void mustBeAbleToEnterInputAndConvert() {
         //Arrange
-        FahrenheitCelciusConverter fahrenheitConverter = new FahrenheitCelciusConverter();
         String expectedResult = "21.11111111111111°C";
 
         //Act
@@ -101,7 +100,6 @@ public class FahrenheitCelciusConverterTest {
     @Test
     public void mustBeAbleToConvertCelciusToFahrenheit() {
         //Arrange
-        FahrenheitCelciusConverter fahrenheitConverter = new FahrenheitCelciusConverter();
         String expectedResult = "64.4°F";
 
         //Act
@@ -114,7 +112,6 @@ public class FahrenheitCelciusConverterTest {
     @Test
     public void mustOnlyBeAbleToEnterNumberAsInput() {
         //Arrange
-        FahrenheitCelciusConverter fahrenheitConverter = new FahrenheitCelciusConverter();
         //Act,//Assert
         ByteArrayInputStream in = new ByteArrayInputStream("testInput".getBytes());
         System.setIn(in);
@@ -129,7 +126,6 @@ public class FahrenheitCelciusConverterTest {
     @Test
     public void mustBeAbleChooseCelciusConversion() {
         //Arrange
-        FahrenheitCelciusConverter fahrenheitConverter = new FahrenheitCelciusConverter();
         String expectedResult = "21.11111111111111°C";
 
         //Act
@@ -142,7 +138,6 @@ public class FahrenheitCelciusConverterTest {
     @Test
     public void mustBeAbleChooseFahrenheitConversion() {
         //Arrange
-        FahrenheitCelciusConverter fahrenheitConverter = new FahrenheitCelciusConverter();
         String expectedResult = "77°F";
 
         //Act

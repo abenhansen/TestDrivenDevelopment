@@ -1,5 +1,7 @@
 package romanNumeralConverter;
 
+import fahrenHeitCelciusConverter.FahrenheitCelciusConverter;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
@@ -12,13 +14,17 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class RomanNumeralConverterTest {
 
+    private RomanNumeralConverter romanConverter;
+
+    @BeforeEach
+    public void setup(){
+        romanConverter = new RomanNumeralConverter();
+    }
+
     @Test
     public void mustBeAbleToCreateConverter() {
         //Arrange
-
         //Act
-        RomanNumeralConverter romanConverter = new RomanNumeralConverter();
-
         //Assert
         assertNotNull(romanConverter);
     }
@@ -26,7 +32,6 @@ public class RomanNumeralConverterTest {
     @Test
     public void convertOneToI() {
         //Arrange
-        RomanNumeralConverter romanConverter = new RomanNumeralConverter();
         String expectedResult = "I";
 
         //Act
@@ -40,7 +45,6 @@ public class RomanNumeralConverterTest {
     @Test
     public void convertTwoToII() {
         //Arrange
-        RomanNumeralConverter romanConverter = new RomanNumeralConverter();
         String expectedResult = "II";
 
         //Act
@@ -54,7 +58,6 @@ public class RomanNumeralConverterTest {
     @Test
     public void convertFourToIV() {
         //Arrange
-        RomanNumeralConverter romanConverter = new RomanNumeralConverter();
         String expectedResult = "IV";
 
         //Act
@@ -68,7 +71,6 @@ public class RomanNumeralConverterTest {
     @Test
     public void convertSixToVI() {
         //Arrange
-        RomanNumeralConverter romanConverter = new RomanNumeralConverter();
         String expectedResult = "VI";
 
         //Act
@@ -82,7 +84,6 @@ public class RomanNumeralConverterTest {
     @Test
     public void convertEightToVIII() {
         //Arrange
-        RomanNumeralConverter romanConverter = new RomanNumeralConverter();
         String expectedResult = "VIII";
 
         //Act
@@ -96,7 +97,6 @@ public class RomanNumeralConverterTest {
     @Test
     public void convertNineTo9() {
         //Arrange
-        RomanNumeralConverter romanConverter = new RomanNumeralConverter();
         String expectedResult = "IX";
 
         //Act
@@ -110,7 +110,6 @@ public class RomanNumeralConverterTest {
     @Test
     public void convertTenToX() {
         //Arrange
-        RomanNumeralConverter romanConverter = new RomanNumeralConverter();
         String expectedResult = "X";
 
         //Act
@@ -124,7 +123,6 @@ public class RomanNumeralConverterTest {
     @Test
     public void convertThirteenToXIII() {
         //Arrange
-        RomanNumeralConverter romanConverter = new RomanNumeralConverter();
         String expectedResult = "XIII";
 
         //Act
@@ -138,7 +136,6 @@ public class RomanNumeralConverterTest {
     @Test
     public void convertNineteenToXIX() {
         //Arrange
-        RomanNumeralConverter romanConverter = new RomanNumeralConverter();
         String expectedResult = "XIX";
 
         //Act
@@ -153,7 +150,6 @@ public class RomanNumeralConverterTest {
     @Test
     public void convertFortiesToXL() {
         //Arrange
-        RomanNumeralConverter romanConverter = new RomanNumeralConverter();
         String expectedResult = "XLII";
 
         //Act
@@ -167,7 +163,6 @@ public class RomanNumeralConverterTest {
     @Test
     public void convertFiftiesToL() {
         //Arrange
-        RomanNumeralConverter romanConverter = new RomanNumeralConverter();
         String expectedResult = "LXV";
 
         //Act
@@ -181,7 +176,6 @@ public class RomanNumeralConverterTest {
     @Test
     public void convertNineTeesToXC() {
         //Arrange
-        RomanNumeralConverter romanConverter = new RomanNumeralConverter();
         String expectedResult = "XCIV";
 
         //Act
@@ -195,7 +189,6 @@ public class RomanNumeralConverterTest {
     @Test
     public void convertHundredsToC() {
         //Arrange
-        RomanNumeralConverter romanConverter = new RomanNumeralConverter();
         String expectedResult = "CCLIX";
 
         //Act
@@ -209,7 +202,6 @@ public class RomanNumeralConverterTest {
     @Test
     public void convertFourHundredsToCD() {
         //Arrange
-        RomanNumeralConverter romanConverter = new RomanNumeralConverter();
         String expectedResult = "CDXXXIII";
 
         //Act
@@ -224,7 +216,6 @@ public class RomanNumeralConverterTest {
     @Test
     public void convertFiveHundredsToD() {
         //Arrange
-        RomanNumeralConverter romanConverter = new RomanNumeralConverter();
         String expectedResult = "DCCCXCII";
 
         //Act
@@ -238,7 +229,6 @@ public class RomanNumeralConverterTest {
     @Test
     public void convertNineHundredsToCM() {
         //Arrange
-        RomanNumeralConverter romanConverter = new RomanNumeralConverter();
         String expectedResult = "CMXCIX";
 
         //Act
@@ -252,7 +242,6 @@ public class RomanNumeralConverterTest {
     @Test
     public void convertThousandsToM() {
         //Arrange
-        RomanNumeralConverter romanConverter = new RomanNumeralConverter();
         String expectedResult = "MMMCCCLII";
 
         //Act
@@ -266,7 +255,6 @@ public class RomanNumeralConverterTest {
     @Test
     public void EmptyIfAbove3999() {
         //Arrange
-        RomanNumeralConverter romanConverter = new RomanNumeralConverter();
         //Act
         String actualResult = romanConverter.convert(4555);
 
@@ -277,7 +265,6 @@ public class RomanNumeralConverterTest {
     @Test
     public void MustBeAbleToTakeUserInput() {
         //Arrange
-        RomanNumeralConverter romanConverter = new RomanNumeralConverter();
         String expectedResult = "DCCXXI";
         //Act
         ByteArrayInputStream in = new ByteArrayInputStream("721".getBytes());
@@ -291,7 +278,6 @@ public class RomanNumeralConverterTest {
     @Test
     public void userInputMustBeANumber() {
         //Arrange
-        RomanNumeralConverter romanConverter = new RomanNumeralConverter();
         //Act
         ByteArrayInputStream in = new ByteArrayInputStream("stringInput".getBytes());
         System.setIn(in);
