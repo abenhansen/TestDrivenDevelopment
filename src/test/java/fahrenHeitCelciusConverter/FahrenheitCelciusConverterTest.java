@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
 import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -33,7 +31,7 @@ public class FahrenheitCelciusConverterTest {
     @Test
     public void mustBeAbleToConvertOneFahrenheitToCelcius() {
         //Arrange
-        String expectedResult = "-17.22222222222222°C";
+        String expectedResult = "-17.22°C";
 
         //Act
         String actualResult = fahrenheitConverter.convertToCelcius(1);
@@ -49,6 +47,18 @@ public class FahrenheitCelciusConverterTest {
         //Act
 
         String actualResult = fahrenheitConverter.removeTrailingZeros(50.0000, true);
+
+        //Assert
+        assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    public void mustRoundToTwoDecimals() {
+        //Arrange
+        String expectedResult = "50.36°C";
+        //Act
+
+        String actualResult = fahrenheitConverter.removeTrailingZeros(50.3555555555, true);
 
         //Assert
         assertEquals(expectedResult, actualResult);
@@ -84,7 +94,7 @@ public class FahrenheitCelciusConverterTest {
     @Test
     public void mustBeAbleToEnterInputAndConvert() {
         //Arrange
-        String expectedResult = "21.11111111111111°C";
+        String expectedResult = "21.11°C";
 
         //Act
         ByteArrayInputStream in = new ByteArrayInputStream("70".getBytes());
@@ -126,7 +136,7 @@ public class FahrenheitCelciusConverterTest {
     @Test
     public void mustBeAbleChooseCelciusConversion() {
         //Arrange
-        String expectedResult = "21.11111111111111°C";
+        String expectedResult = "21.11°C";
 
         //Act
         String simulatedMultipleUserInputs = "1\n70";

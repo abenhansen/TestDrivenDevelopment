@@ -63,7 +63,9 @@ public class FahrenheitCelciusConverter {
         String symbol = isCelcius ? "°C" : "°F";
         if (number == (int) number)
             return (int) number + symbol;
-        else
+        else {
+            number = Math.round(number * 100.0) / 100.0;
             return number + symbol;
+        }
     }
 }
